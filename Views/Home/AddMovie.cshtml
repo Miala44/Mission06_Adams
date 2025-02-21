@@ -1,5 +1,8 @@
 ﻿@* view to add the movies *@
 
+@* Title, year, edited, and plex ARE REQUIRED for entry *@
+@* Min year 0f 1888 *@
+
 @model Mission06_Adams.Models.Movie
 
 <h1>Add a movie to the collection!!!!!!!</h1>
@@ -21,9 +24,6 @@
     </select>
     <br />
 
-    @* <label asp-for="Category">Category:</label> *@
-    @* <input asp-for="Category" required /> *@
-    @* <br /> *@
 
     <label asp-for="Year">Year:</label>
     <input asp-for="Year" type="number" min="1888" required />
