@@ -8,13 +8,7 @@ namespace Mission06_Adams.Controllers
 {
     public class HomeController : Controller
     {
-        //private readonly ILogger<HomeController> _logger;
-
-        //public HomeController(ILogger<HomeController> logger)
-        //{
-        //    _logger = logger;
-        //}
-
+        
         private AddMovieContext _context;
         public HomeController(AddMovieContext temp) 
         {
@@ -46,11 +40,14 @@ namespace Mission06_Adams.Controllers
         [HttpPost]
         public IActionResult AddMovie(Movie response)
         {
-            _context.Movies.Add(response); //Add record to the database
-            _context.SaveChanges();
-            
+           
+                _context.Movies.Add(response); //Add record to the database
+                _context.SaveChanges();
 
-            return View("Confirmation", response);
+
+                return View("Confirmation", response);
+
+            
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
