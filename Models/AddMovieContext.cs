@@ -12,5 +12,16 @@ namespace Mission06_Adams.Models
 
         // DbSet property representing the Movies table in the database
         public DbSet<Movie> Movies { get; set; }
+        public DbSet<Category> Categories { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Category>().HasData(
+                
+                    new Category { CategoryId=1, CategoryName="Drama"},
+                    new Category { CategoryId=2, CategoryName="Comedy"}
+                
+                );
+        }
     }
 }

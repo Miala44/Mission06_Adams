@@ -5,13 +5,24 @@
 <h1>Add a movie to the collection!!!!!!!</h1>
 
 <form method="post">
+    <input type="hidden", asp-for="MovieID" />
+
+
     <label asp-for="Title">Title:</label>
     <input asp-for="Title" required />
     <br />
 
-    <label asp-for="Category">Category:</label>
-    <input asp-for="Category" required />
+    <select asp-for="CategoryId">
+        <option value="">Select Category</option>
+        @foreach (Category c in ViewBag.Categories) {
+            <option value="@c.CategoryId"> @c.CategoryName</option>
+        }
+    </select>
     <br />
+
+    @* <label asp-for="Category">Category:</label> *@
+    @* <input asp-for="Category" required /> *@
+    @* <br /> *@
 
     <label asp-for="Year">Year:</label>
     <input asp-for="Year" type="number" required />
@@ -34,6 +45,14 @@
     <label asp-for="Edited">Edited?</label>
     <select asp-for="Edited">
         <option value="" selected disabled>Select a rating</option>
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+    </select>
+    <br />
+
+    <label asp-for="CopiedToPlex">Copied to Plex?</label>
+    <select asp-for="CopiedToPlex">
+        <option value="" selected disabled>Select</option>
         <option value="true">Yes</option>
         <option value="false">No</option>
     </select>
